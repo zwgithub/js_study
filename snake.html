@@ -44,7 +44,25 @@
 	}
 
 	function Snake(){
-		
+		this.width = 20;
+		this.height = 20;
+		this.position = 'absolute';
+		this.body = [[4,2,'red'],[3,2,'blue'],[2,2,'blue']];
+		this.show = function (){
+			for (var i = 0; i < this.body.length; i++) {
+				var div = document.createElement('div');
+				div.style.width = this.width + 'px';
+				div.style.height = this.height + 'px';
+				div.style.position = this.position;
+				div.style.backgroundColor = this.body[i][2];
+
+				//蛇的位置
+				div.style.left = this.body[i][0] * this.width + 'px';
+				div.style.top = this.body[i][1] * this.height + 'px';
+
+				map._map.appendChild(div);
+			}
+		}
 	}
 
 	var map;
@@ -54,6 +72,9 @@
 
 		var food = new Food();
 		food.show();
+
+		var snake = new Snake();
+		snake.show();
 	}
 </script>
 </head>
