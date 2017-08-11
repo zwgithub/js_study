@@ -127,16 +127,40 @@
 		this.setDirect = function (code){
 			switch (code) {
 				case 37:
-					this.direct = 'left';
+					{
+						if (this.lastDirect == 'right') {
+							return;
+						}
+						this.direct = 'left';
+						this.lastDirect = this.direct
+					}
 					break;
 				case 38:
-					this.direct = 'top';
+					{
+						if (this.lastDirect == 'down') {
+							return;
+						}
+						this.direct = 'top';
+						this.lastDirect = this.direct
+					}
 					break;
 				case 39:
-					this.direct = 'right';
+					{
+						if (this.lastDirect == 'left') {
+							return;
+						}
+						this.direct = 'right';
+						this.lastDirect = this.direct
+					}
 					break;
 				case 40:
-					this.direct = 'down';
+					{
+						if (this.lastDirect == 'top') {
+							return;
+						}
+						this.direct = 'down';
+						this.lastDirect = this.direct
+					}
 					break;
 			}
 
