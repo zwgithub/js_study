@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>ajax get 请求</title>
+<script language='javascript' src='public.js'></script>
+</head>
+<body>
+	<script>
+		//创建 ajax 对象
+		var xhr = createXhr();
+
+		//初始化 ajax 对象
+		xhr.open('get', 'demo_get.php');
+		
+		//设置回调函数
+		xhr.onreadystatechange = function () {
+			alert(xhr.readState);
+			if (xhr.readState == 4) {
+				alert(xhr.responseText);
+			}
+		};
+
+		xhr.send(null);
+		
+	</script>
+</body>
+</html>
